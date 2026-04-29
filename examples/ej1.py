@@ -4,12 +4,12 @@ from dyntaint import *
 raw_input = untrusted(raw_input)
 
 @untrusted
-def obtener_numero(mensaje="Ingrese un numero: "):
+def obtain_number(mensaje="Ingrese un numero: "):
     n = raw_input(mensaje)
     return n
 
 @cleaner(SQLI)
-def limpiarSQLi(s):
+def exampleSQLi(s):
     '''lo limpie, creeme.'''
     return s
 
@@ -18,5 +18,6 @@ def guardarDB(valor):
     print "Guardando en la BD:", valor
 
 if __name__ == '__main__':
-    n = obtener_numero()
-    guardarDB(n)
+    n = obtain_number()
+    guardarDB(n) #throws runtime error as source (untrusted) reaches sink
+    
